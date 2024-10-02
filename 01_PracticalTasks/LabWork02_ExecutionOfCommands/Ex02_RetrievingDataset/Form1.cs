@@ -13,7 +13,7 @@ using System.Configuration;
 
 
 //--.
-namespace Ex01_GettingScalarValue
+namespace Ex02_RetrievingDataset
 {
     public partial class Form1 : Form
     {
@@ -149,6 +149,18 @@ namespace Ex01_GettingScalarValue
             command.CommandText = "SELECT COUNT(*) FROM Products";
             int number = (int) command.ExecuteScalar();
             label1.Text = number.ToString();
+
+            //--.
+            OleDbCommand commandProdNam = new OleDbCommand();
+            commandProdNam.Connection = connection;
+            commandProdNam.CommandText = "SELECT ProductName FROM Products";
+            OleDbDataReader reader = commandProdNam.ExecuteReader();
+            //--.
+            while( reader.Read() ) 
+            { 
+                listView1.Items.Add(reader["ProductName"].ToString() );
+            }
+
         }
     }
 }

@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E318F32E-D33E-44C6-BE83-29D9601CCE82}</ProjectGuid>
+    <ProjectGuid>{29DF2F07-0AD3-4CE4-9DE5-BB54C360D2FE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Ex01_GettingScalarValue</RootNamespace>
-    <AssemblyName>Ex01_GettingScalarValue</AssemblyName>
+    <RootNamespace>Ex02_RetrievingDataset</RootNamespace>
+    <AssemblyName>Ex02_RetrievingDataset</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

@@ -13,7 +13,7 @@ using System.Configuration;
 
 
 //--.
-namespace Ex01_GettingScalarValue
+namespace Ex03_ExecutingTransaction
 {
     public partial class Form1 : Form
     {
@@ -149,6 +149,60 @@ namespace Ex01_GettingScalarValue
             command.CommandText = "SELECT COUNT(*) FROM Products";
             int number = (int) command.ExecuteScalar();
             label1.Text = number.ToString();
+
+            //--.
+            OleDbCommand commandProdNam = new OleDbCommand();
+            commandProdNam.Connection = connection;
+            commandProdNam.CommandText = "SELECT ProductName FROM Products";
+            OleDbDataReader reader = commandProdNam.ExecuteReader();
+            //--.
+            while( reader.Read() ) 
+            { 
+                listView1.Items.Add(reader["ProductName"].ToString() );
+            }
+
         }
+
+        //--.
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            //--.
+            if (connection.State == ConnectionState.Closed)
+            {
+                MessageBox.Show("First, connect to the database..");
+                return;
+            }
+
+            //--.
+            OleDbTransaction OleTran = connection.BeginTransaction();
+            OleDbCommand command = connection.CreateCommand();
+            command.Transaction = OleTran;
+            
+            //--.
+            try
+            {
+                command.CommandText = "INSERT INTO Products (ProductName) VALUES ('Wrong size')";
+                command.ExecuteNonQuery();
+                command.CommandText = "INSERT INTO Products (ProductName) VALUES ('Wrong color')";
+                command.ExecuteNonQuery();
+                OleTran.Commit();
+                MessageBox.Show("Both records were written to database");
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+
+                //--.
+                try
+                {
+                    OleTran.Rollback();
+                }
+                catch(Exception exRollback)
+                {
+                    MessageBox.Show(exRollback.Message);
+                }
+            }
+        }   
     }
 }
