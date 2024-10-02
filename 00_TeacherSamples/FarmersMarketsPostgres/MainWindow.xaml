@@ -1,0 +1,16 @@
+﻿<Window x:Class="FarmersMarkets.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FarmersMarkets"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Margin="0,0,0,-6">
+        <TextBox x:Name="txtZIP" HorizontalAlignment="Left" Margin="31,56,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label Content="Enter ZIP:" HorizontalAlignment="Left" Margin="61,25,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnRefresh" Content="Refresh view" HorizontalAlignment="Left" Margin="56,108,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.05,0.102" Click="btnRefresh_Click"/>
+        <ListBox x:Name="lstMarkets" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="165,19,23,25"/>
+
+    </Grid>
+</Window>

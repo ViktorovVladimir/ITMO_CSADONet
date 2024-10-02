@@ -1,0 +1,208 @@
+<?xml version="1.0" standalone="yes"?>
+<OrdersDataSet>
+  <xs:schema id="OrdersDataSet" xmlns="" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xs:element name="OrdersDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+      <xs:complexType>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element name="Products">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="ProductID" type="xs:string" />
+                <xs:element name="ProductName" type="xs:string" minOccurs="0" />
+                <xs:element name="Price" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Product_x0026_Price" msdata:ReadOnly="true" msdata:Expression="ProductName + ' ' + Price" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="OrderDetails">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OrderID" type="xs:int" />
+                <xs:element name="ProductID" type="xs:string" />
+                <xs:element name="Qty" type="xs:int" minOccurs="0" />
+                <xs:element name="Price" type="xs:decimal" minOccurs="0" />
+                <xs:element name="Product_x0026_Qty_x0026_Price_x0026_Total" msdata:ReadOnly="true" msdata:Expression="ProductID + ' ' + Qty + ' ' + Price + ' ' + LineTotal" type="xs:string" minOccurs="0" />
+                <xs:element name="LineTotal" msdata:ReadOnly="true" msdata:Expression="Price * Qty" type="xs:decimal" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Orders">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="OrderID" msdata:AutoIncrement="true" type="xs:int" />
+                <xs:element name="Time_x0020_Stamp" type="xs:dateTime" minOccurs="0" />
+                <xs:element name="Customer" type="xs:int" minOccurs="0" />
+                <xs:element name="OrderID_x0026_Date" msdata:ReadOnly="true" msdata:Expression="OrderID + ' ' + [Time Stamp]" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="Customers">
+            <xs:complexType>
+              <xs:sequence>
+                <xs:element name="CustomerID" msdata:AutoIncrement="true" type="xs:int" />
+                <xs:element name="FirstName" type="xs:string" minOccurs="0" />
+                <xs:element name="LastName" type="xs:string" minOccurs="0" />
+                <xs:element name="ID_x0026_FullName" msdata:ReadOnly="true" msdata:Expression="CustomerID + ' ' + FirstName + ' ' + LastName" type="xs:string" minOccurs="0" />
+              </xs:sequence>
+            </xs:complexType>
+          </xs:element>
+        </xs:choice>
+      </xs:complexType>
+      <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//Products" />
+        <xs:field xpath="ProductID" />
+      </xs:unique>
+      <xs:unique name="OrderDetails_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//OrderDetails" />
+        <xs:field xpath="OrderID" />
+        <xs:field xpath="ProductID" />
+      </xs:unique>
+      <xs:unique name="Orders_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//Orders" />
+        <xs:field xpath="OrderID" />
+      </xs:unique>
+      <xs:unique name="Customers_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+        <xs:selector xpath=".//Customers" />
+        <xs:field xpath="CustomerID" />
+      </xs:unique>
+      <xs:keyref name="FK_OrdersCustomers" refer="Customers_Constraint1" msdata:RelationName="rel_OrdersCustomers">
+        <xs:selector xpath=".//Orders" />
+        <xs:field xpath="Customer" />
+      </xs:keyref>
+      <xs:keyref name="FK_OrderDetailsProducts" refer="Constraint1" msdata:RelationName="relOrders_Products">
+        <xs:selector xpath=".//OrderDetails" />
+        <xs:field xpath="ProductID" />
+      </xs:keyref>
+      <xs:keyref name="FK_OrderDetailsOrders" refer="Orders_Constraint1" msdata:RelationName="relOrdersDetails_Orders">
+        <xs:selector xpath=".//OrderDetails" />
+        <xs:field xpath="OrderID" />
+      </xs:keyref>
+    </xs:element>
+  </xs:schema>
+  <Products>
+    <ProductID>1</ProductID>
+    <ProductName>Milk</ProductName>
+    <Price>2.61</Price>
+    <Product_x0026_Price>Milk 2.61</Product_x0026_Price>
+  </Products>
+  <Products>
+    <ProductID>2</ProductID>
+    <ProductName>iPhone 15 Pro</ProductName>
+    <Price>599</Price>
+    <Product_x0026_Price>iPhone 15 Pro 599</Product_x0026_Price>
+  </Products>
+  <Products>
+    <ProductID>3</ProductID>
+    <ProductName>BMW 525</ProductName>
+    <Price>39999</Price>
+    <Product_x0026_Price>BMW 525 39999</Product_x0026_Price>
+  </Products>
+  <Products>
+    <ProductID>4</ProductID>
+    <ProductName>Bread</ProductName>
+    <Price>0.99</Price>
+    <Product_x0026_Price>Bread 0.99</Product_x0026_Price>
+  </Products>
+  <Products>
+    <ProductID>5</ProductID>
+    <ProductName>Ham</ProductName>
+    <Price>3.99</Price>
+    <Product_x0026_Price>Ham 3.99</Product_x0026_Price>
+  </Products>
+  <OrderDetails>
+    <OrderID>1</OrderID>
+    <ProductID>1</ProductID>
+    <Qty>2</Qty>
+    <Price>3.5</Price>
+    <Product_x0026_Qty_x0026_Price_x0026_Total>1 2 3.5 7.0</Product_x0026_Qty_x0026_Price_x0026_Total>
+    <LineTotal>7.0</LineTotal>
+  </OrderDetails>
+  <OrderDetails>
+    <OrderID>1</OrderID>
+    <ProductID>2</ProductID>
+    <Qty>1</Qty>
+    <Price>799</Price>
+    <Product_x0026_Qty_x0026_Price_x0026_Total>2 1 799 799</Product_x0026_Qty_x0026_Price_x0026_Total>
+    <LineTotal>799</LineTotal>
+  </OrderDetails>
+  <OrderDetails>
+    <OrderID>1</OrderID>
+    <ProductID>4</ProductID>
+    <Qty>5</Qty>
+    <Price>0.67</Price>
+    <Product_x0026_Qty_x0026_Price_x0026_Total>4 5 0.67 3.35</Product_x0026_Qty_x0026_Price_x0026_Total>
+    <LineTotal>3.35</LineTotal>
+  </OrderDetails>
+  <OrderDetails>
+    <OrderID>1</OrderID>
+    <ProductID>5</ProductID>
+    <Qty>11</Qty>
+    <Price>3.49</Price>
+    <Product_x0026_Qty_x0026_Price_x0026_Total>5 11 3.49 38.39</Product_x0026_Qty_x0026_Price_x0026_Total>
+    <LineTotal>38.39</LineTotal>
+  </OrderDetails>
+  <OrderDetails>
+    <OrderID>2</OrderID>
+    <ProductID>3</ProductID>
+    <Qty>1</Qty>
+    <Price>34999</Price>
+    <Product_x0026_Qty_x0026_Price_x0026_Total>3 1 34999 34999</Product_x0026_Qty_x0026_Price_x0026_Total>
+    <LineTotal>34999</LineTotal>
+  </OrderDetails>
+  <OrderDetails>
+    <OrderID>2</OrderID>
+    <ProductID>4</ProductID>
+    <Qty>2</Qty>
+    <Price>1.29</Price>
+    <Product_x0026_Qty_x0026_Price_x0026_Total>4 2 1.29 2.58</Product_x0026_Qty_x0026_Price_x0026_Total>
+    <LineTotal>2.58</LineTotal>
+  </OrderDetails>
+  <OrderDetails>
+    <OrderID>3</OrderID>
+    <ProductID>5</ProductID>
+    <Qty>1</Qty>
+    <Price>4.29</Price>
+    <Product_x0026_Qty_x0026_Price_x0026_Total>5 1 4.29 4.29</Product_x0026_Qty_x0026_Price_x0026_Total>
+    <LineTotal>4.29</LineTotal>
+  </OrderDetails>
+  <Orders>
+    <OrderID>1</OrderID>
+    <Time_x0020_Stamp>2022-02-21T00:00:00-05:00</Time_x0020_Stamp>
+    <Customer>1</Customer>
+    <OrderID_x0026_Date>1 2/21/2022 12:00:00 AM</OrderID_x0026_Date>
+  </Orders>
+  <Orders>
+    <OrderID>2</OrderID>
+    <Time_x0020_Stamp>2023-09-18T19:08:00-04:00</Time_x0020_Stamp>
+    <Customer>2</Customer>
+    <OrderID_x0026_Date>2 9/18/2023 7:08:00 PM</OrderID_x0026_Date>
+  </Orders>
+  <Orders>
+    <OrderID>3</OrderID>
+    <Time_x0020_Stamp>2023-01-01T15:00:00-05:00</Time_x0020_Stamp>
+    <Customer>1</Customer>
+    <OrderID_x0026_Date>3 1/1/2023 3:00:00 PM</OrderID_x0026_Date>
+  </Orders>
+  <Orders>
+    <OrderID>4</OrderID>
+    <Customer>3</Customer>
+  </Orders>
+  <Customers>
+    <CustomerID>1</CustomerID>
+    <FirstName>Konstantin</FirstName>
+    <LastName>Kuzmin</LastName>
+    <ID_x0026_FullName>1 Konstantin Kuzmin</ID_x0026_FullName>
+  </Customers>
+  <Customers>
+    <CustomerID>2</CustomerID>
+    <FirstName>Michael</FirstName>
+    <LastName>Anderson</LastName>
+    <ID_x0026_FullName>2 Michael Anderson</ID_x0026_FullName>
+  </Customers>
+  <Customers>
+    <CustomerID>3</CustomerID>
+    <FirstName>Alexander</FirstName>
+    <LastName>Kuzmin</LastName>
+    <ID_x0026_FullName>3 Alexander Kuzmin</ID_x0026_FullName>
+  </Customers>
+</OrdersDataSet>

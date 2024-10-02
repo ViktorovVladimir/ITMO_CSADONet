@@ -1,0 +1,131 @@
+<?xml version="1.0" standalone="yes"?>
+<diffgr:diffgram xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+  <OrdersDataSet>
+    <Products diffgr:id="Products1" msdata:rowOrder="0">
+      <ProductID>1</ProductID>
+      <ProductName>Milk</ProductName>
+      <Price>2.41</Price>
+      <Product_x0026_Price>Milk 2.41</Product_x0026_Price>
+    </Products>
+    <Products diffgr:id="Products2" msdata:rowOrder="1">
+      <ProductID>2</ProductID>
+      <ProductName>iPhone 15 Pro</ProductName>
+      <Price>599</Price>
+      <Product_x0026_Price>iPhone 15 Pro 599</Product_x0026_Price>
+    </Products>
+    <Products diffgr:id="Products3" msdata:rowOrder="2">
+      <ProductID>3</ProductID>
+      <ProductName>BMW 525</ProductName>
+      <Price>39999</Price>
+      <Product_x0026_Price>BMW 525 39999</Product_x0026_Price>
+    </Products>
+    <Products diffgr:id="Products4" msdata:rowOrder="3">
+      <ProductID>4</ProductID>
+      <ProductName>Bread</ProductName>
+      <Price>0.99</Price>
+      <Product_x0026_Price>Bread 0.99</Product_x0026_Price>
+    </Products>
+    <Products diffgr:id="Products5" msdata:rowOrder="4">
+      <ProductID>5</ProductID>
+      <ProductName>Ham</ProductName>
+      <Price>3.99</Price>
+      <Product_x0026_Price>Ham 3.99</Product_x0026_Price>
+    </Products>
+    <OrderDetails diffgr:id="OrderDetails1" msdata:rowOrder="0">
+      <OrderID>1</OrderID>
+      <ProductID>1</ProductID>
+      <Qty>2</Qty>
+      <Price>3.5</Price>
+      <Product_x0026_Qty_x0026_Price_x0026_Total>1 2 3.5 7.0</Product_x0026_Qty_x0026_Price_x0026_Total>
+      <LineTotal>7.0</LineTotal>
+    </OrderDetails>
+    <OrderDetails diffgr:id="OrderDetails2" msdata:rowOrder="1">
+      <OrderID>1</OrderID>
+      <ProductID>2</ProductID>
+      <Qty>1</Qty>
+      <Price>799</Price>
+      <Product_x0026_Qty_x0026_Price_x0026_Total>2 1 799 799</Product_x0026_Qty_x0026_Price_x0026_Total>
+      <LineTotal>799</LineTotal>
+    </OrderDetails>
+    <OrderDetails diffgr:id="OrderDetails3" msdata:rowOrder="2">
+      <OrderID>1</OrderID>
+      <ProductID>4</ProductID>
+      <Qty>5</Qty>
+      <Price>0.67</Price>
+      <Product_x0026_Qty_x0026_Price_x0026_Total>4 5 0.67 3.35</Product_x0026_Qty_x0026_Price_x0026_Total>
+      <LineTotal>3.35</LineTotal>
+    </OrderDetails>
+    <OrderDetails diffgr:id="OrderDetails4" msdata:rowOrder="3">
+      <OrderID>1</OrderID>
+      <ProductID>5</ProductID>
+      <Qty>11</Qty>
+      <Price>3.49</Price>
+      <Product_x0026_Qty_x0026_Price_x0026_Total>5 11 3.49 38.39</Product_x0026_Qty_x0026_Price_x0026_Total>
+      <LineTotal>38.39</LineTotal>
+    </OrderDetails>
+    <OrderDetails diffgr:id="OrderDetails5" msdata:rowOrder="4">
+      <OrderID>2</OrderID>
+      <ProductID>3</ProductID>
+      <Qty>1</Qty>
+      <Price>34999</Price>
+      <Product_x0026_Qty_x0026_Price_x0026_Total>3 1 34999 34999</Product_x0026_Qty_x0026_Price_x0026_Total>
+      <LineTotal>34999</LineTotal>
+    </OrderDetails>
+    <OrderDetails diffgr:id="OrderDetails6" msdata:rowOrder="5">
+      <OrderID>2</OrderID>
+      <ProductID>4</ProductID>
+      <Qty>2</Qty>
+      <Price>1.29</Price>
+      <Product_x0026_Qty_x0026_Price_x0026_Total>4 2 1.29 2.58</Product_x0026_Qty_x0026_Price_x0026_Total>
+      <LineTotal>2.58</LineTotal>
+    </OrderDetails>
+    <OrderDetails diffgr:id="OrderDetails7" msdata:rowOrder="6">
+      <OrderID>3</OrderID>
+      <ProductID>5</ProductID>
+      <Qty>1</Qty>
+      <Price>4.29</Price>
+      <Product_x0026_Qty_x0026_Price_x0026_Total>5 1 4.29 4.29</Product_x0026_Qty_x0026_Price_x0026_Total>
+      <LineTotal>4.29</LineTotal>
+    </OrderDetails>
+    <Orders diffgr:id="Orders1" msdata:rowOrder="0">
+      <OrderID>1</OrderID>
+      <Time_x0020_Stamp>2022-02-21T00:00:00-05:00</Time_x0020_Stamp>
+      <Customer>1</Customer>
+      <OrderID_x0026_Date>1 2/21/2022 12:00:00 AM</OrderID_x0026_Date>
+    </Orders>
+    <Orders diffgr:id="Orders2" msdata:rowOrder="1">
+      <OrderID>2</OrderID>
+      <Time_x0020_Stamp>2023-09-18T19:08:00-04:00</Time_x0020_Stamp>
+      <Customer>2</Customer>
+      <OrderID_x0026_Date>2 9/18/2023 7:08:00 PM</OrderID_x0026_Date>
+    </Orders>
+    <Orders diffgr:id="Orders3" msdata:rowOrder="2">
+      <OrderID>3</OrderID>
+      <Time_x0020_Stamp>2023-01-01T15:00:00-05:00</Time_x0020_Stamp>
+      <Customer>1</Customer>
+      <OrderID_x0026_Date>3 1/1/2023 3:00:00 PM</OrderID_x0026_Date>
+    </Orders>
+    <Orders diffgr:id="Orders4" msdata:rowOrder="3">
+      <OrderID>4</OrderID>
+      <Customer>3</Customer>
+    </Orders>
+    <Customers diffgr:id="Customers1" msdata:rowOrder="0">
+      <CustomerID>1</CustomerID>
+      <FirstName>Konstantin</FirstName>
+      <LastName>Kuzmin</LastName>
+      <ID_x0026_FullName>1 Konstantin Kuzmin</ID_x0026_FullName>
+    </Customers>
+    <Customers diffgr:id="Customers2" msdata:rowOrder="1">
+      <CustomerID>2</CustomerID>
+      <FirstName>Michael</FirstName>
+      <LastName>Anderson</LastName>
+      <ID_x0026_FullName>2 Michael Anderson</ID_x0026_FullName>
+    </Customers>
+    <Customers diffgr:id="Customers3" msdata:rowOrder="2">
+      <CustomerID>3</CustomerID>
+      <FirstName>Alexander</FirstName>
+      <LastName>Kuzmin</LastName>
+      <ID_x0026_FullName>3 Alexander Kuzmin</ID_x0026_FullName>
+    </Customers>
+  </OrdersDataSet>
+</diffgr:diffgram>

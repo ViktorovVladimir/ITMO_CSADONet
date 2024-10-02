@@ -1,0 +1,45 @@
+<?xml version="1.0" standalone="yes"?>
+<Students_x0020_and_x0020_Courses>
+  <Students>
+    <StudentID>1</StudentID>
+    <LastName>Kuzmin</LastName>
+    <FirstName>Konstantin</FirstName>
+    <Initials>KK</Initials>
+  </Students>
+  <Students>
+    <StudentID>2</StudentID>
+    <LastName>Anderson</LastName>
+    <FirstName>Kyle</FirstName>
+    <Initials>KA</Initials>
+  </Students>
+  <Students>
+    <StudentID>3</StudentID>
+    <LastName>Shark</LastName>
+    <FirstName>Mary</FirstName>
+    <Initials>MS</Initials>
+  </Students>
+  <Courses>
+    <CourseID>CSCI-2600</CourseID>
+    <CourseName>Software Design &amp; Documentation</CourseName>
+  </Courses>
+  <Courses>
+    <CourseID>CSCI-4380</CourseID>
+    <CourseName>Database Systems</CourseName>
+  </Courses>
+  <StudentsCourses>
+    <Student>1</Student>
+    <Course>CSCI-2600</Course>
+  </StudentsCourses>
+  <StudentsCourses>
+    <Student>2</Student>
+    <Course>CSCI-2600</Course>
+  </StudentsCourses>
+  <StudentsCourses>
+    <Student>3</Student>
+    <Course>CSCI-2600</Course>
+  </StudentsCourses>
+  <StudentsCourses>
+    <Student>3</Student>
+    <Course>CSCI-4380</Course>
+  </StudentsCourses>
+</Students_x0020_and_x0020_Courses>

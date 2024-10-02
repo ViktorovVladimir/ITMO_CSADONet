@@ -1,0 +1,112 @@
+﻿<Window x:Class="Lec03Ex02.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lec03Ex02"
+        mc:Ignorable="d"
+        Title="Connection Pools" Height="800" Width="1200" Loaded="Window_Loaded">
+    <Grid>
+        <ListView x:Name="lstConnections" Margin="0,371,0,0">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Foreground" Value="{Binding Color}"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Open Connection" Click="OpenConnection_Click" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}}"/>
+                    <MenuItem Header="Change Context" Click="ChangeContext_Click" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}}"/>
+                    <MenuItem Header="Close Connection" Click="CloseConnection_Click" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}}"/>
+                    <MenuItem Header="Close and Remove Connection" Click="RemoveConnection_Click" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}}"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="40" Header="ID" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Width="120" Header="Provider" DisplayMemberBinding="{Binding Provider}"/>
+                    <GridViewColumn Width="800" Header="Connection String" DisplayMemberBinding="{Binding Connection.ConnectionString}"/>
+                    <GridViewColumn Width="100" Header="Previous State" DisplayMemberBinding="{Binding PreviousState}"/>
+                    <GridViewColumn Width="100" Header="Current State" DisplayMemberBinding="{Binding Connection.State}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label Content="Connections:" HorizontalAlignment="Left" Margin="10,340,0,0" VerticalAlignment="Top"/>
+        <ListView x:Name="lstConnectionStrings" Margin="0,182,0,449">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Foreground" Value="{Binding Color}"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Create Connection" Click="CreateConnection_Click" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}}"/>
+                    <MenuItem Header="Remove Connection String" Click="RemoveConnectionString_Click" CommandParameter="{Binding RelativeSource={RelativeSource AncestorType={x:Type ContextMenu}}}"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="40" Header="ID" DisplayMemberBinding="{Binding ID}"/>
+                    <GridViewColumn Width="150" Header="Name" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="150" Header="Provider" DisplayMemberBinding="{Binding Provider}"/>
+                    <GridViewColumn Width="800" Header="Connection String" DisplayMemberBinding="{Binding ConnectionStringValue}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Label x:Name="lblConnectionStrings" Content="Connection Strings:" HorizontalAlignment="Left" Margin="4,151,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblServer" Content="Server:" HorizontalAlignment="Left" Margin="165,92,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblDatabase" Content="Database:" HorizontalAlignment="Left" Margin="348,92,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblProvider" Content="Provider:" HorizontalAlignment="Left" Margin="4,92,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="lblOther" Content="Other options:" HorizontalAlignment="Left" Margin="550,92,0,0" VerticalAlignment="Top"/>
+
+        <TextBox x:Name="txtServer" HorizontalAlignment="Left" Margin="211,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtDatabase" HorizontalAlignment="Left" Margin="415,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtOther" HorizontalAlignment="Left" Margin="636,96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="375">
+            <TextBox.ToolTip>
+                <ToolTip>
+                    <DockPanel>
+                        <!--See https://learn.microsoft.com/en-us/archive/blogs/angelsb/ado-net-the-misunderstood-connection-lifetime-managed-pooler-connection-string-keyword-->
+                        <TextBlock>Try the following options:
+                            <LineBreak /> 
+                            For SQL Server
+                            <LineBreak />
+                            -------------
+                            <LineBreak /> 
+                            Integrated Security=True;
+                            <LineBreak />
+                            Integrated Security=SSPI;
+                            <LineBreak />
+                            Pooling=False;
+                            <LineBreak />
+                            Min Pool Size=5;
+                            <LineBreak />
+                            Max Pool Size=3;
+                            <LineBreak />
+                            Connect Timeout=1;Connection Lifetime=120;
+                            <LineBreak /> 
+                            <LineBreak /> 
+                            For PostgreSQL
+                            <LineBreak /> 
+                            -------------
+                            <LineBreak />
+                            Persist Security Info=False;
+                            <LineBreak />
+                            Persist Security Info=True;
+                        </TextBlock>
+                    </DockPanel>
+                </ToolTip>
+            </TextBox.ToolTip>
+        </TextBox>
+        <Button x:Name="btnAddConnectionString" Content="Add connection string" HorizontalAlignment="Left" Margin="1041,95,0,0" VerticalAlignment="Top" Click="btnAddConnectionString_Click"/>
+        <StackPanel Name="panelRadioProvider" Margin="61,64,1040,620">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type RadioButton}">
+                    <Setter Property="Margin" Value="0,10,0,0"/>
+                </Style>
+            </StackPanel.Resources>
+            <RadioButton x:Name="radioSQLServer" Content="SQL Server" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Provider" IsChecked="True"/>
+            <RadioButton x:Name="radioPostgreSQL" Content="PostgreSQL" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Provider"/>
+            <RadioButton x:Name="radioMySQL" Content="MySQL" HorizontalAlignment="Left" VerticalAlignment="Top" GroupName="Provider"/>
+        </StackPanel>
+    </Grid>
+</Window>

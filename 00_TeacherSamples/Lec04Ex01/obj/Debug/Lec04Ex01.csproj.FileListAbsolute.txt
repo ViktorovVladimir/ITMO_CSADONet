@@ -1,0 +1,10 @@
+C:\ADO .NET\202409\Workspace\Lec04Ex01\bin\Debug\Lec04Ex01.exe.config
+C:\ADO .NET\202409\Workspace\Lec04Ex01\bin\Debug\Lec04Ex01.exe
+C:\ADO .NET\202409\Workspace\Lec04Ex01\bin\Debug\Lec04Ex01.pdb
+C:\ADO .NET\202409\Workspace\Lec04Ex01\obj\Debug\Lec04Ex01.csproj.AssemblyReference.cache
+C:\ADO .NET\202409\Workspace\Lec04Ex01\obj\Debug\Lec04Ex01.Form1.resources
+C:\ADO .NET\202409\Workspace\Lec04Ex01\obj\Debug\Lec04Ex01.Properties.Resources.resources
+C:\ADO .NET\202409\Workspace\Lec04Ex01\obj\Debug\Lec04Ex01.csproj.GenerateResource.cache
+C:\ADO .NET\202409\Workspace\Lec04Ex01\obj\Debug\Lec04Ex01.csproj.CoreCompileInputs.cache
+C:\ADO .NET\202409\Workspace\Lec04Ex01\obj\Debug\Lec04Ex01.exe
+C:\ADO .NET\202409\Workspace\Lec04Ex01\obj\Debug\Lec04Ex01.pdb

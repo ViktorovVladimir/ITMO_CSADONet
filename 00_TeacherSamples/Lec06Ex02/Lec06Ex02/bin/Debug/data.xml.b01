@@ -1,0 +1,51 @@
+<?xml version="1.0" standalone="yes"?>
+<OrdersDataSet>
+  <Products>
+    <ProductID>1</ProductID>
+    <ProductName>Milk</ProductName>
+    <Price>2.61</Price>
+  </Products>
+  <Products>
+    <ProductID>2</ProductID>
+    <ProductName>iPhone 15 Pro</ProductName>
+    <Price>599</Price>
+  </Products>
+  <Products>
+    <ProductID>3</ProductID>
+    <ProductName>BMW 525</ProductName>
+    <Price>39999</Price>
+  </Products>
+  <Products>
+    <ProductID>4</ProductID>
+    <ProductName>Bread</ProductName>
+    <Price>0.99</Price>
+  </Products>
+  <Products>
+    <ProductID>5</ProductID>
+    <ProductName>Ham</ProductName>
+    <Price>3.99</Price>
+  </Products>
+  <OrderDetails>
+    <OrderID>1</OrderID>
+    <ProductID>1</ProductID>
+    <Qty>2</Qty>
+  </OrderDetails>
+  <OrderDetails>
+    <OrderID>1</OrderID>
+    <ProductID>2</ProductID>
+    <Qty>1</Qty>
+  </OrderDetails>
+  <OrderDetails>
+    <OrderID>1</OrderID>
+    <ProductID>4</ProductID>
+    <Qty>5</Qty>
+  </OrderDetails>
+  <Orders>
+    <OrderID>1</OrderID>
+    <Time_x0020_Stamp>2022-02-21T00:00:00-05:00</Time_x0020_Stamp>
+  </Orders>
+  <Orders>
+    <OrderID>3</OrderID>
+    <Time_x0020_Stamp>2023-09-18T19:08:00-04:00</Time_x0020_Stamp>
+  </Orders>
+</OrdersDataSet>
